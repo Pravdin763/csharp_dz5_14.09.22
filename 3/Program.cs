@@ -4,34 +4,62 @@ Console.WriteLine("Введите колличество элементов ма
 int numbers = int.Parse(Console.ReadLine()!);
 double[] array = new double[numbers];
 
-for (int i=0; i<array.Length; i++)
+
+double[] Filling(double[] arr)
 {
-    Console.WriteLine($"Введите вещественных число массива array {i+1} из {array.Length}");
-    array[i] = double.Parse(Console.ReadLine()!);
-}
-
-Console.WriteLine($"Массив: {string.Join(", ", array)}");
-
-double minNum = array[0];
-
-for (int i=0; i<array.Length; i++)
-{
-    if (array[i]< minNum)
+    for (int i = 0; i < arr.Length; i++)
     {
-        minNum = array[i];
+        Console.WriteLine($"Введите вещественное число массива array {i + 1} из {arr.Length}");
+        arr[i] = double.Parse(Console.ReadLine()!);
     }
+    return arr;
 }
 
-Console.WriteLine(minNum);
-double maxNum = array[0];
-
-for (int i=0; i<array.Length; i++)
+void WriteArray(double[] arr)
 {
-    if (array[i]> maxNum)
-    {
-        maxNum = array[i];
-    }
+    Console.WriteLine($"Массив: {string.Join(", ", arr)}");
 }
 
-Console.WriteLine(maxNum);
-Console.WriteLine($"Разница между минимальным и максимальным элементом массива array = {maxNum-Math.Abs(minNum)}");
+double Min(double[] arr)
+{
+    double minNum = arr[0];
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] < minNum)
+        {
+            minNum = arr[i];
+        }
+    }
+    Console.WriteLine($"Минимальное = {minNum}");
+    return minNum;
+}
+
+double Max(double[] arr)
+{
+    double maxNum = arr[0];
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] > maxNum)
+        {
+            maxNum = arr[i];
+        }
+    }
+    Console.WriteLine($"Максимальное = {maxNum}");
+    return maxNum;
+}
+
+void PrintDifference(double min, double max)
+{
+    Console.WriteLine($"Разница между минимальным и максимальным элементом массива array = {max - Math.Abs(min)}");
+}
+
+
+Filling(array);
+WriteArray(array);
+double minNum = Min(array);
+double maxNum = Max(array);
+PrintDifference(minNum, maxNum);
+
+
