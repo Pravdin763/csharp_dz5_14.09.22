@@ -52,7 +52,7 @@ double Max(double[] arr)
 
 void PrintDifference(double min, double max)
 {
-    Console.WriteLine($"Разница между минимальным и максимальным элементом массива array = {max - Math.Abs(min)}");
+    Console.WriteLine($"Разница между минимальным и максимальным элементом массива array = {max - min}");
 }
 
 
